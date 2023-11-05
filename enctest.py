@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-PROMPT = "Cute cat"
+PROMPT = "Female biker riding a bike"
 SEED = 123
 STEPS = 20
 
@@ -14,6 +14,7 @@ image_height = 192
 model = "shadowlamer/sd-zxspectrum-model-256"
 
 
+# Borrowed from here: https://stackoverflow.com/a/73667318
 def quantize_to_palette(_image, _palette):
     x_query = _image.reshape(-1, 3).astype(np.float32)
     x_index = _palette.astype(np.float32)
@@ -61,7 +62,8 @@ def palette_to_attr(_palette):
 pipe = DiffusionPipeline.from_pretrained(model, safety_checker=None, requires_safety_checker=False)
 generator = torch.Generator("cpu").manual_seed(SEED)
 raw_image = pipe(PROMPT, height=192, width=256, num_inference_steps=STEPS, generator=generator).images[0]
-palette = np.array([[0, 0, 0], [0, 0, 255], [0, 255, 0], [0, 255, 255], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255]])
+palette = np.array(
+    [[0, 0, 0], [0, 0, 255], [0, 255, 0], [0, 255, 255], [255, 0, 0], [255, 0, 255], [255, 255, 0], [255, 255, 255]])
 input_image = np.array(raw_image)
 input_image = input_image[:, :, ::-1].copy()
 image = quantize_to_palette(_image=input_image, _palette=palette)
@@ -95,4 +97,3 @@ scr.write(bytearray(attr_buffer))
 scr.close()
 
 image.save(out + ".png")
-

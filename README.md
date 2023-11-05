@@ -5,15 +5,25 @@ Welcome to my ZX-Spectrum art generation project! Stable diffusion is a state-of
 The script takes a text description of the ZX Spectrum scene and generates an image based on the provided description. Some examples of the generated images are shown below:
 
 Example 1: A cute cat
+
 ![Example 1](samples/Cute_cat_123_20.png)
 
 Example 2: A Solar system
+
 ![Example 2](samples/Solar_system_123_20.png)
 
 Example 3: A sea shore 
+
 ![Example 3](samples/Sea_shore_123_20.png)
 
 Example 4: A disco ball!
+
 ![Example 4](samples/Disco_ball_123_20.png)
 
 This project is for entertainment purposes only and should not be used for any commercial or illegal purposes. The generated images are not endorsed by or affiliated with any copyright holders, and the user is solely responsible for any usage that infringes upon copyright laws.
+
+[What is ZX Spectrum?](https://en.wikipedia.org/wiki/ZX_Spectrum)
+
+[ZX Spectrum screen memory layout](http://www.breakintoprogram.co.uk/hardware/computers/zx-spectrum/screen-memory-layout)
+
+[Comprehensive collection of ZX Spectrum art](https://zxart.ee/eng/graphics/)
